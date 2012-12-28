@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="eight columns form username">
+        <h2>Instagram Username</h2>
+        <form action="/" method="post" id="lookup">
+            {% csrf_token %}
+            <input type="submit" value="Lookup ID" class="button">
+            <div class="text_fields">
+                <input type="text" name="username" placeholder="Username">
+                <input type="text" name="access_token" placeholder="Access Token (optional)">
+            </div>
+        </form>
+        <p>If you'd like to user your own Instagram access token, you can enter it above. <a href="http://instagram.com/developer/register/" alt="Instagram Registration">Get an access token here.</a></p>
+    </div>
+    <div class="eight columns form uid">
+        <img src="{{ STATIC_URL }}img/loading.gif" alt="loading" id="loading" style="position: absolute; left: 50%; margin-left: -16px; top: 50%; margin-top: -16px; display: none;"/>
+        <h2>Instagram User ID</h2>
+        <h3></h3>
+        <h4></h4>
+        <div class="attributes">
+        </div>
+    </div>
+    <div class="sixteen columns link">
+        <h3><a href="http://yahoo.com/">Django Source Code</a></h3>
+        <h3><a href="http://yahoo.com/">Rails Source Code</a></h3>
+    </div>
+    <div class="sixteen columns attribution">
+        <a href="http://www.zeantsoi.com/">Created by Zean Tsoi</a>
+    </div>
+{% endblock %}

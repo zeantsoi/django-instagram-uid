@@ -1,0 +1,76 @@
+a, a:hover, a:visited {
+  text-decoration: none;
+}
+
+.form {
+  position: relative;
+  margin: 20px 0 20px;
+  padding: 20px 0 20px;
+  height: 180px;
+  border-top: #ccc 1px solid;
+  border-bottom: #ccc 1px solid;
+  overflow: hidden;
+}
+
+.username > form {
+  margin: 0;
+}
+
+.username > form > .text_fields {
+  overflow: hidden; 
+  padding-right: 1em;
+}
+
+.username > form > .text_fields > input[type="text"] {
+  width: 100%;
+  margin: 0 0 5px;
+}
+
+.username > form > input[type="submit"] {
+  height: 66px;
+  float: right;
+  margin: 0;
+}
+
+.username > p {
+  margin-top: 10px;
+  color: #666;
+}
+
+.uid > h3 {
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.uid > .attributes > img {
+  width: 80px;
+  float: left;
+  margin-right: 15px;
+}
+
+.uid > .attributes > .info {
+  float: left;
+  width: 250px;
+}
+
+.uid > .attributes > .info > ul > li {
+  margin: 0 0 5px 0;
+  font-size: 12px;
+}
+
+.link {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.attribution {
+  text-align: center;
+  font-size: 12px;
+}
+
+.attribution a,
+.attribution a:hover,
+.attribution a:visited {
+  color: #999;
+  text-decoration: none;
+}

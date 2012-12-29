@@ -3,7 +3,6 @@ import json
 from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.template import RequestContext, loader
 from instagram.client import InstagramAPI
 
 import django_instagram_uid.settings as settings
@@ -37,7 +36,7 @@ def index(request, access_token_error=None, username_error=None):
 		except:
 			username_error = "The username entered is not valid"
 
-		if request.is_ajax:
+		if request.is_ajax():
 			if (access_token_error or username_error):
 				if access_token_error:
 					error = access_token_error
@@ -46,12 +45,17 @@ def index(request, access_token_error=None, username_error=None):
 
 				return HttpResponse(json.dumps({"error":(error)}), mimetype="application/json")
 			else:
+				
 				return HttpResponse(json.dumps(attributes), mimetype="application/json")
 		else:
-			t = loader.get_template('index.html')
-			c = RequestContext(request, {'foo': 'bar'})
-			return HttpResponse(t.render(c))
+			context = {}
+			if (access_token_error or username_error):
+				if access_token_error:
+					context.update({'error':access_token_error})
+				elif username_error:
+					context.update({'error':username_error})
+			else:
+				context = attributes
+			return render(request, 'index.html', context)
 	else:
-		t = loader.get_template('index.html')
-		c = RequestContext(request, {'foo': 'bar'})
-		return HttpResponse(t.render(c))
+		return render(request, 'index.html')

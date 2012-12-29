@@ -42,6 +42,15 @@ a, a:hover, a:visited {
   margin-bottom: 10px;
 }
 
+.uid > img#loading {
+  position: absolute; 
+  left: 50%; 
+  margin-left: -16px; 
+  top: 50%; 
+  margin-top: -16px; 
+  display: none;
+}
+
 .uid > .attributes > img {
   width: 80px;
   float: left;
@@ -71,6 +80,5 @@ a, a:hover, a:visited {
 .attribution a,
 .attribution a:hover,
 .attribution a:visited {
-  color: #999;
   text-decoration: none;
 }

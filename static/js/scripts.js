@@ -19,7 +19,7 @@ $(function() {
 				} else {
 					$('.uid > h3').html(data['id']);
 	 				$('.uid > h3').fadeIn();
-					html = '<img src="' + data['profile_picture'] + '" /><div class="info"><ul>';	 				
+					html = '<img src="' + data['profile_picture'] + '" alt="' + data['username'] + '" /><div class="info"><ul>';	 				
 	 				attributes = ['full_name', 'website', 'bio'];
 	 				attributes.map(function(attribute) {
 	 					if (data[attribute]) html += '<li>' + data[attribute] + '</li>';

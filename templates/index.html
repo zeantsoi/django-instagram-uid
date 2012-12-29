@@ -24,7 +24,7 @@
             <div class="info">
                 <ul>
                     {% if full_name %}<li>{{ full_name }}</li>{% endif %}
-                    {% if website %}<li>{{ website }}</li>{% endif %}
+                    {% if website %}<li><a href="{{ website }}" />{{ website }}</a></li>{% endif %}
                     {% if bio %}<li>{{ bio }}</li>{% endif %}
                 </ul>
             </div>

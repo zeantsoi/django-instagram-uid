@@ -26,13 +26,16 @@ def index(request, access_token_error=None, username_error=None):
 					access_token_error = "The Access Token in settings.py is invalid"
 
 		try:
-			attributes = {}
-			attributes['id'] = users[0].id or None
-			attributes['bio'] = users[0].bio or None
-			attributes['full_name'] = users[0].full_name or None
-			attributes['profile_picture'] = users[0].profile_picture or None
-			attributes['username'] = users[0].username or None
-			attributes['website'] = users[0].website or None
+			user = users[0]
+			attributes = {
+				'id': user.id,
+				'bio': user.bio,
+				'full_name': user.full_name,
+				'profile_picture': user.profile_picture,
+				'username': user.username,
+				'website': user.website,
+			}
+			attributes = dict((k,v) for k,v in attributes.items() if v)
 		except:
 			username_error = "The username entered is not valid"
 
@@ -49,11 +52,10 @@ def index(request, access_token_error=None, username_error=None):
 				return HttpResponse(json.dumps(attributes), mimetype="application/json")
 		else:
 			context = {}
-			if (access_token_error or username_error):
-				if access_token_error:
-					context.update({'error':access_token_error})
-				elif username_error:
-					context.update({'error':username_error})
+			if access_token_error:
+				context.update({'error':access_token_error})
+			elif username_error:
+				context.update({'error':username_error})
 			else:
 				context = attributes
 			return render(request, 'index.html', context)

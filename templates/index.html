@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main %}
+
     <div class="eight columns form username">
         <h2>Instagram Username</h2>
         <form action="/" method="post" id="lookup">
@@ -13,12 +14,15 @@
         </form>
         <p>If you'd like to user your own Instagram access token, you can enter it above. <a href="http://instagram.com/developer/register/">Get an access token here.</a></p>
     </div>
+    
     <div class="eight columns form uid">
         <img src="{{ STATIC_URL }}img/loading.gif" alt="loading" id="loading" />
         <h2>Instagram User ID</h2>
 
         <h3>{{ id }}</h3>
         <h4>{{ error }}</h4>
+    
+        <!-- Manually load attributes into div if request is not AJAX -->
         <div class="attributes">
             {% if profile_picture %}<img src="{{ profile_picture }}" alt="{{ username }}" />{% endif %}
             <div class="info">
@@ -29,12 +33,16 @@
                 </ul>
             </div>
         </div>
+    
     </div>
+    
     <div class="sixteen columns link">
         <h3><a href="https://github.com/zeantsoi/django-instagram-uid">Django Source Code</a></h3>
         <h3><a href="https://github.com/zeantsoi/rails-instagram-uid">Rails Source Code</a></h3>
     </div>
+    
     <div class="sixteen columns attribution">
         <a href="http://www.zeantsoi.com/">Created by Zean Tsoi</a>
     </div>
+
 {% endblock %}

@@ -160,7 +160,7 @@ INSTAGRAM_ACCESS_TOKEN = 'YOUR INSTAGRAM ACCESS TOKEN'
 ##################
 # LOCAL SETTINGS #
 ##################
-# ALWAY AT BOTTOM#
+# ALWAYS AT BOTTOM#
 ##################
 # Allow any settings to be defined in local_settings.py which should be
 # ignored in your version control system allowing for settings to be
